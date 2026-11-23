@@ -18,7 +18,8 @@ def create_access_token(user_id: int) -> str:
 
     payload = {
         "sub": str(user_id),
-        "exp": expire
+        "exp": expire,
+        "type": "access"
     }
 
     return jwt.encode(
@@ -28,9 +29,15 @@ def create_access_token(user_id: int) -> str:
     )
 
 def decode_access_token(token: str ) -> dict:
-    return jwt.decode(
+    payload =  jwt.decode(
         token,
         SECRET_KEY,
         algorithms=[ALGORITHM],
-        options={"require": ["sub", "exp"]}
+        options={"require": ["sub", "exp", "type"]}
     )
+
+
+    if payload["type"] != "access":
+        raise jwt.InvalidTokenError("Invalid token type")
+
+    return payload

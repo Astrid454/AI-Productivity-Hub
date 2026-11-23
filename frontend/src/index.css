@@ -3,7 +3,49 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-    -webkit-text-fill-color: #ffffff;
-    -webkit-box-shadow: 0 0 0 1000px #171A2B inset;
-    caret-color: #ffffff;
+    -webkit-text-fill-color: var(--color-app-text);
+    -webkit-box-shadow: 0 0 0 1000px var(--color-app-input) inset;
+    caret-color: var(--color-app-text);
+}
+
+.modal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-app-border) transparent;
+}
+
+.modal-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-app-border);
+    border-radius: 999px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-app-primary-hover);
+}
+
+
+@theme {
+    /* Backgrounds */
+    --color-app-bg: #080F18;
+    --color-app-surface: #132434;
+    --color-app-input: #0D1928;
+
+    /* Borders */
+    --color-app-border: #274254;
+
+    /* Brand colors */
+    --color-app-primary: #2563EB;
+    --color-app-primary-hover: #3B82F6;
+    --color-app-accent: #2DD4BF;
+
+    /* Typography */
+    --color-app-text: #F1F5F9;
+    --color-app-muted: #9BAEBB;
 }

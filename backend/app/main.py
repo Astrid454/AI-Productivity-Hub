@@ -8,6 +8,7 @@ from app.schemas.task import (
 
 from app.routers.tasks import router as tasks_router
 from app.routers.auth import router as auth_router
+from app.ai.router import router as ai_router
 
 app = FastAPI()
 
@@ -24,3 +25,4 @@ app.add_middleware(
 
 app.include_router(tasks_router)
 app.include_router(auth_router)
+app.include_router(ai_router)
